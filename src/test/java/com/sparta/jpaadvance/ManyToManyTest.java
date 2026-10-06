@@ -14,29 +14,34 @@
 // 
 // @Transactional
 // @SpringBootTest
-// public class OneToOneTest {
+// public class ManyToManyTest {
 // 
 //     @Autowired
 //     UserRepository userRepository;
 //     @Autowired
 //     FoodRepository foodRepository;
 // 
-// 
 //     @Test
-//     @Rollback(value = false) // 테스트에서는 @Transactional 에 의해 자동 rollback 됨으로 false 설정해준다.
-//     @DisplayName("1대1 단방향 테스트")
+//     @Rollback(value = false)
+//     @DisplayName("N대M 단방향 테스트")
 //     void test1() {
 // 
 //         User user = new User();
 //         user.setName("Robbie");
 // 
-//         // 외래 키의 주인인 Food Entity user 필드에 user 객체를 추가해 줍니다.
+//         User user2 = new User();
+//         user2.setName("Robbert");
+// 
 //         Food food = new Food();
 //         food.setName("후라이드 치킨");
 //         food.setPrice(15000);
-//         food.setUser(user); // 외래 키(연관 관계) 설정
+//         food.getUserList().add(user);
+//         food.getUserList().add(user2);
 // 
 //         userRepository.save(user);
+//         userRepository.save(user2);
 //         foodRepository.save(food);
+// 
+//         // 자동으로 중간 테이블 orders 가 create 되고 insert 됨을 확인할 수 있습니다.
 //     }
 // }
