@@ -29,6 +29,7 @@ public class Food {
     //     this.userList.add(user);
     // }
 
-    @OneToMany(mappedBy = "food")
-    private List<Order> orderList = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
