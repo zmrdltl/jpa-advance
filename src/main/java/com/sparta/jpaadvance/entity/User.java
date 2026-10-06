@@ -26,6 +26,11 @@ public class User {
     //     food.getUserList().add(this);
     // }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Food> foodList = new ArrayList<>();
+
+    public void addFoodList(Food food) {
+        this.foodList.add(food);
+        food.setUser(this);
+    }
 }

@@ -1,4 +1,4 @@
-package com.sparta.jpaadvance;
+package com.sparta.jpaadvance.relation;
 
 import com.sparta.jpaadvance.entity.Food;
 import com.sparta.jpaadvance.entity.Order;
